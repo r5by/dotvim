@@ -1,0 +1,7 @@
+### folers ignored
+/plugin
+/bundle
+/view
+
+### files ignored
+.DS_Store

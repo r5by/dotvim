@@ -1,0 +1,58 @@
+" vimrc4md
+" ruby-@2013-04-02
+
+"=================================================
+" General
+"=================================================
+set nocompatible
+set autoread
+set autoindent
+set expandtab tabstop=4 softtabstop=4 shiftwidth=4
+set laststatus=2
+set mouse=a
+set t_Co=256
+syntax on
+
+"=================================================
+" Shortcuts- md2html
+"=================================================
+let mapleader = ','
+nnoremap <leader>f  :silent! !safari %<CR>
+nnoremap <C-m>      !!markdown<CR>
+vnoremap <C-m>      !markdown<CR>
+"nnoremap <C-p>      !!pandoc<CR>
+"vnoremap <C-p>      !pandoc<CR>
+
+"=================================================
+" Autocommand
+"=================================================
+au FileType markdown        let &l:mp='pandoc % \| tidy -q -i -utf8 --doctype omit --tidy-mark 0 --show-errors 0 -o %:r.html'
+au FileType markdown        nnoremap <buffer> <F5> :write \| silent make \| redraw!<CR>
+au BufWrite *.markdown      exe "normal \<F5>"
+
+"=================================================
+" Functions
+"=================================================
+com! -bar TOC call TOC()
+fun! TOC()
+    call setloclist(0, [])
+    let save_cursor = getpos(".")
+    call cursor(1, 1)
+    let flag = 'cW'
+    while search("^#", flag) > 0
+        let flag = 'W'
+        let msg = printf('%s:%d:%s', expand('%'), line('.'), substitute(getline('.'), '#', '»', 'g'))
+        laddexpr msg
+    endwhile
+    call setpos('.', save_cursor)
+    silent! call ToggleLocationList()
+endfun
+
+"=================================================
+" Plugins
+"=================================================
+let g:alternateExtensions_html = 'markdown'
+let g:alternateExtensions_markdown = 'html'
+set rtp+=~/.vim/bundle/powerline/
+set rtp+=~/.vim/bundle/alternate/
+let g:Powerline_symbols = 'fancy'
