@@ -59,7 +59,6 @@
     "   For .markdown files
     "   > ruby gems dependencies:
     "   > sudo gem install github-markup
-    "   > sudo gem install redcarpet
     " --------------------------------
     Bundle 'matthias-guenther/hammer.vim'
 

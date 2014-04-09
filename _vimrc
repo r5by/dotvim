@@ -139,36 +139,18 @@ source ~/.vim/bundles.vim
 "    Vim UI  
 " ***********************************************************************-{{{
 
-     "Different colorscheme for GUI and terminal mode
-    "if has('gui_running')
+    set guifont=Monaco:h12
+    set nu			        " line number
 
-        "if filereadable(expand("~/.vim/bundle/vim-colors-solarized/colors/solarized.vim"))
-            "syntax enable
-            "colorscheme solarized		"  load a colorschem
-            "let g:solarized_termcolors=256 "endif
-            "let g:solarized_contrast="high"
-            "let g:solarized_visibility="high"
-
-        "set background=dark     " Load dark/light scheme for mvim
-        "set guifont=Andale\ Mono\ Regular:h14,Menlo\ Regular:h13,Consolas\ Regular:h14,Courier\ New\ Regular:h15
-        "set transparency=5	    " make the window slightly transparent
-        "set guioptions-=T	    " Remove Toolbar
-        "set lines=40		    " 40 lines of text instead of 24
-        "set nu			        " line number
-        "hi LineNr guibg=DarkSlateBlue
-        "hi LineNr guifg=purple3
-
-    "else 
-          " A not complete solution for vim under Apple_Terminal
-          colorscheme codeschool
-          set guifont=Monaco:h12
-          set nu			        " line number
+    " Different colorscheme for vim/macvim
     if has('gui_running')
+          colorscheme codeschool
           set guioptions-=T
           set lines=40
           set transparency=5
+    else 
+          colorscheme macvim
     endif
-    "endif
 
     if has("cmdline_info")
         set ruler			" show the cursor position at any time
