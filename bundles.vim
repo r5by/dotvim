@@ -22,14 +22,14 @@
 "   Code completions
 " ------------------------------------
     Bundle 'AutoComplPop'
-    Bundle 'garbas/vim-snipmate'
+    "Bundle 'garbas/vim-snipmate'
 
 
 "Using snipmate
 " ---- snipmate dependencies ----
     Bundle 'MarcWeber/vim-addon-mw-utils'
     Bundle 'tomtom/tlib_vim'
-    Bundle 'honza/snipmate-snippets'
+    Bundle 'honza/vim-snippets'
 
 
 " ------------------------------------
