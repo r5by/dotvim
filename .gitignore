@@ -1,11 +1,11 @@
 ### Folers to be ignored
-/plugin
-/bundle
-/view
+plugin/
+bundle/
+view/
 
 ### Files to be updated
-!/bundle/vim-colors-solarized/colors/codeschool.vim
-!/bundle/vundle
+!bundle/vim-colors-solarized/colors/codeschool.vim
+!bundle/vundle
 
 ### Files to be ignored
 .DS_Store
