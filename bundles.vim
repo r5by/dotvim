@@ -23,7 +23,8 @@
 " ------------------------------------
     Bundle 'AutoComplPop'
     "Bundle 'garbas/vim-snipmate'
-
+    " try another snippets engine
+    Bundle 'SirVer/ultisnips'
 
 "Using snipmate
 " ---- snipmate dependencies ----
