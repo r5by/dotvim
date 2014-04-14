@@ -21,9 +21,12 @@
 " ------------------------------------
 "   Code completions
 " ------------------------------------
-    Bundle 'AutoComplPop'
+    "Bundle 'AutoComplPop'
+    "   --try YouCompleteMe
+    Bundle 'Valloric/YouCompleteMe'
+
     "Bundle 'garbas/vim-snipmate'
-    " try another snippets engine
+    "   --try ultisnips
     Bundle 'SirVer/ultisnips'
 
 "Using snipmate

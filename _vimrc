@@ -328,7 +328,7 @@ source ~/.vim/bundles.vim
     endfunction
 
 
-    " autocomplete for (, {, [, "
+    " Autocomplete for (, {, [, " support
     function! ClosePair(char)
         if getline('.')[col('.')-1]==a:char
             return "\<Right>"
@@ -394,6 +394,12 @@ source ~/.vim/bundles.vim
         
     "}
 
+    " YCM {
+    " Solve conflicts with Ultisnips for <Tab> binding
+    let g:ycm_key_list_select_completion = ['<c-n>', '<Down>']
+    let g:ycm_key_list_previous_completion = ['<c-p>', '<Up>']
+    " }
+
 	" Omnicomplete {
         if has("autocmd") && exists("+omnifunc")
             autocmd Filetype *
@@ -403,10 +409,12 @@ source ~/.vim/bundles.vim
         endif
 
         hi Pmenu guifg=#000000 guibg=#F8F8F8 ctermfg=black ctermbg=Lightgray
+      
         hi PmenuSbar  guifg=#8A95A7 guibg=#F8F8F8 gui=NONE ctermfg=darkcyan ctermbg=lightgray cterm=NONE	
         hi PmenuThumb  guifg=#F8F8F8 guibg=#8A95A7 gui=NONE ctermfg=lightgray ctermbg=darkcyan cterm=NONE
         
         " Some convenient mappings
+        " Comment out conflicts short-cuts defined in MacVim.app/Contents/Resources/vim/runtime before using following commends
         inoremap <expr> <Esc>      pumvisible() ? "\<C-e>" : "\<Esc>"
         inoremap <expr> <CR>       pumvisible() ? "\<C-y>" : "\<CR>"
         inoremap <expr> <Down>     pumvisible() ? "\<C-n>" : "\<Down>"
@@ -425,25 +433,33 @@ source ~/.vim/bundles.vim
         " Omnicomplete : spell correction
         inoremap <D-s> <c-x><c-s>
 
-        " Automatically open and close the popup menu / preview window
+        "" Automatically open and close the popup menu / preview window
         au CursorMovedI,InsertLeave * if pumvisible() == 0|silent! pclose|endif
         set completeopt=menu,preview,longest
 	"}
 
+    " Optionals for snippet engine [1]
+    " ultisnips {
+    let g:UltiSnipsExpandTrigger="<tab>"
+    let g:UltiSnipsJumpForwardTrigger="<tab>"
+    let g:UltiSnipsJumpBackwardTrigger="<s-tab>"
+    " }
+
+    " Optionals for snippet engine [2]
     " snipMate {
-    inoremap <expr> <Down>     pumvisible() ? "\<C-n>" : "\<Down>"
-    inoremap <expr> <Up>       pumvisible() ? "\<C-p>" : "\<Up>"
+    "inoremap <expr> <Down>     pumvisible() ? "\<C-n>" : "\<Down>"
+    "inoremap <expr> <Up>       pumvisible() ? "\<C-p>" : "\<Up>"
     "}
 
     " eclim {
-    let g:acp_behaviorJavaEclimLength = 3
-    let g:acp_behavior = {
-        \ 'java': [{
-        \ 'command': "\<c-x>\<c-u>",
-        \ 'completefunc' : 'eclim#java#complete#CodeComplete',
-        \ 'meets'        : 'MeetsForJavaEclim',
-        \ }]
-    \ }
+    "let g:acp_behaviorJavaEclimLength = 3
+    "let g:acp_behavior = {
+        "\ 'java': [{
+        "\ 'command': "\<c-x>\<c-u>",
+        "\ 'completefunc' : 'eclim#java#complete#CodeComplete',
+        "\ 'meets'        : 'MeetsForJavaEclim',
+        "\ }]
+    "\ }
     "}
     
     " PowerLine {
@@ -470,9 +486,9 @@ source ~/.vim/bundles.vim
     "}
 
     "* NerdCommentor {
-    " <Leader>cs: Comment select range
-    " <leader>cn: comment current selected text in visual mode
-    " <leader>c<space>: toggle comment
+    " Use <Leader>cs: Comment select range
+    " Use <leader>cn: comment current selected text in visual mode
+    " Use <leader>c<space>: toggle comment
     "}
                         
                                                                         "--}}}
